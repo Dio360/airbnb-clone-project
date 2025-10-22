@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net">
+  <diagram name="Airbnb ERD" id="airbnb-erd">
+    <mxGraphModel dx="1280" dy="720" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- User Entity -->
+        <mxCell id="user" value="User
+----------------
+user_id (PK)
+first_name
+last_name
+email (UNIQUE)
+password_hash
+phone_number
+role
+created_at" style="shape=rectangle;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="60" width="200" height="160" as="geometry" />
+        </mxCell>
+
+        <!-- Property Entity -->
+        <mxCell id="property" value="Property
+----------------
+property_id (PK)
+host_id (FK)
+name
+description
+location
+pricepernight
+created_at
+updated_at" style="shape=rectangle;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="60" width="200" height="180" as="geometry" />
+        </mxCell>
+
+        <!-- Booking Entity -->
+        <mxCell id="booking" value="Booking
+----------------
+booking_id (PK)
+property_id (FK)
+user_id (FK)
+start_date
+end_date
+total_price
+status
+created_at" style="shape=rectangle;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="660" y="60" width="200" height="180" as="geometry" />
+        </mxCell>
+
+        <!-- Payment Entity -->
+        <mxCell id="payment" value="Payment
+----------------
+payment_id (PK)
+booking_id (FK)
+amount
+payment_date
+payment_method" style="shape=rectangle;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="960" y="60" width="200" height="160" as="geometry" />
+        </mxCell>
+
+        <!-- Review Entity -->
+        <mxCell id="review" value="Review
+----------------
+review_id (PK)
+property_id (FK)
+user_id (FK)
+rating (1-5)
+comment
+created_at" style="shape=rectangle;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="300" width="200" height="160" as="geometry" />
+        </mxCell>
+
+        <!-- Message Entity -->
+        <mxCell id="message" value="Message
+----------------
+message_id (PK)
+sender_id (FK)
+recipient_id (FK)
+message_body
+sent_at" style="shape=rectangle;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="660" y="300" width="200" height="160" as="geometry" />
+        </mxCell>
+
+        <!-- Relationships -->
+        <mxCell id="rel1" edge="1" parent="1" source="user" target="property" style="endArrow=block;endFill=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel2" edge="1" parent="1" source="user" target="booking" style="endArrow=block;endFill=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel3" edge="1" parent="1" source="property" target="booking" style="endArrow=block;endFill=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel4" edge="1" parent="1" source="booking" target="payment" style="endArrow=block;endFill=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel5" edge="1" parent="1" source="user" target="review" style="endArrow=block;endFill=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel6" edge="1" parent="1" source="property" target="review" style="endArrow=block;endFill=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel7" edge="1" parent="1" source="user" target="message" style="endArrow=block;endFill=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel8" edge="1" parent="1" source="message" target="user" style="endArrow=block;endFill=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
